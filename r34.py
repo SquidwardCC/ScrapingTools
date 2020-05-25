@@ -33,14 +33,17 @@ def getImages(tag):
     for post in tqdm(posts):
         if any(ext in post for ext in included_types):
             name = rule34.download(post)
+
+            #TODO: Probably a better way to do this error check
             try:
                 Image.open(name)
             except:
                 print("Downloaded file corrupted... deleting")
                 os.remove(name)
+
             time.sleep(.5)
 
-#tags = {"sonic", "astolfo", "astolfo_(fate)", "shuten_douji", "artoria_pendragon_(all)"}
+
 tags = {"mordred_(fate)", "kiyohime_(fate/grand_order)", "jeanne_d&#039;arc_(fate)", "jeanne_d&#039;arc_(fate)", "jack_the_ripper_(fate/apocrypha)"}
 
 for tag in tags:
