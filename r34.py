@@ -6,9 +6,12 @@ import PIL
 from PIL import Image
 
 #dir where all the funny little sub dirs go
-data_dir = "C:\\Users\\MemeMaster\\Desktop\\r34_bot"
+data_dir = "r34_bot"
 included_types = {".png", ".jpg", ".jpeg"}
 
+if not os.path.exists(data_dir):
+    os.mkdir(data_dir)
+    
 rule34 = rule34.Sync()
 
 #Downloads images from a tag
@@ -43,8 +46,6 @@ def getImages(tag):
 
             time.sleep(.5)
 
+if __name__ == "__main__":
+    getImages(input("Tag: "))
 
-tags = {"mordred_(fate)", "kiyohime_(fate/grand_order)", "jeanne_d&#039;arc_(fate)", "jeanne_d&#039;arc_(fate)", "jack_the_ripper_(fate/apocrypha)"}
-
-for tag in tags:
-    getImages(tag)
