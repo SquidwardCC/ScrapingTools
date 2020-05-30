@@ -21,9 +21,6 @@ if not os.path.exists("reddit_out"):
 if not os.path.exists(writeDir):
     os.makedirs(writeDir)
 
-for entry in api.search_submissions(
-                            subreddit=sr,
-                            filter=['url'],
-                            limit=None):
+for entry in api.search_submissions(subreddit=sr, filter=['url'], limit=None):
     saveImage(entry[1],writeDir)
 
